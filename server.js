@@ -19,9 +19,17 @@ else{
     })
 }
 
+
+app.listen(process.env.PORT || 3000, function(){
+conslo.log("Express server listening on Port %d in %s mode",
+this address().port, app.settings.env);
+})
+
+/*
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!')
 })
+*/
 
 app.use(express.static('public'))
 
