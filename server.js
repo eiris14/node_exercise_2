@@ -1,23 +1,19 @@
-const express = require('express');
-const app = express();
+var express = require('express');
+var app = express();
 
-app.use(express.static(__dirname + '/public')); //endret 
+app.use(express.static(__dirname + '/public'));
 
-function greeter(){
-    var greeting = ["Hello There", "Nice to see you", "Greetings and salutations"];
-    var greet = greeting[Math.floor(Math.random()*3)];
-    
-    return greet;
+function rnGreeting() {
+  var arr = ["hei", "hello", "halla"];
+  var greeting = arr[Math.floor(Math.random() * 3)];
+
+  return greeting;
 }
 
-app.get('/greet/:name', function (req,res){
-    
-    res.send(greeter() +" "+ req.params.name);
+app.get('/gr/:name', function(req, res) {
+  res.send(rnGreeting() + " " + req.params.name)
 })
 
 app.listen(process.env.PORT || 3000, function(){
-console.log("Express server listening on Port %d in %s mode",
-this address().port, app.settings.env);
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-
-
