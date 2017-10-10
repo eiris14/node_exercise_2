@@ -1,8 +1,7 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
-
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public')); //endret 
 
 function greeter(){
     var greeting = ["Hello There", "Nice to see you", "Greetings and salutations"];
@@ -11,17 +10,14 @@ function greeter(){
     return greet;
 }
 
-
 app.get('/greet/:name', function (req,res){
     
     res.send(greeter() +" "+ req.params.name);
 })
 
-
 app.listen(process.env.PORT || 3000, function(){
-conslo.log("Express server listening on Port %d in %s mode",
+console.log("Express server listening on Port %d in %s mode",
 this address().port, app.settings.env);
-})
-
+});
 
 
